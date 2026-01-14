@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Thermex Uzbekistan — Официальный партнёр</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; color:#222; }
+    header { background:#e30613; color:#fff; padding:20px; }
+    .container { max-width:1100px; margin:auto; padding:20px; }
+    .top { display:flex; justify-content:space-between; align-items:center; }
+    .lang button {
+      margin-left:10px; padding:6px 10px; border:none; cursor:pointer;
+    }
+    .hero { padding:40px 0; }
+    .btn {
+      display:inline-block; background:#e30613; color:#fff;
+      padding:12px 20px; text-decoration:none; margin-right:10px;
+    }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+    .card { border:1px solid #ddd; padding:15px; }
+    footer { background:#f5f5f5; font-size:14px; }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container top">
+    <strong>THERMEX</strong>
+    <div class="lang">
+      <button onclick="setLang('ru')">RU</button>
+      <button onclick="setLang('uz')">UZ</button>
+    </div>
+  </div>
+</header>
+
+<div class="container hero">
+  <h1 data-ru="Официальный партнёр Thermex в Узбекистане"
+      data-uz="O‘zbekistonda Thermex rasmiy hamkori">
+  </h1>
+
+  <p data-ru="Продажа оригинальных водонагревателей и отопительного оборудования Thermex"
+     data-uz="Thermex suv isitgichlari va isitish uskunalarining original savdosi">
+  </p>
+
+  <a class="btn" href="#catalog" data-ru="Каталог" data-uz="Katalog"></a>
+  <a class="btn" href="tel:+998XXXXXXXXX">📞 +998 XX XXX XX XX</a>
+</div>
+
+<div class="container" id="catalog">
+  <h2 data-ru="Каталог продукции" data-uz="Mahsulotlar katalogi"></h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3 data-ru="Электрические бойлеры" data-uz="Elektr suv isitgichlari"></h3>
+      <p data-ru="Надёжные и энергоэффективные модели"
+         data-uz="Ishonchli va energiya tejamkor modellar"></p>
+    </div>
+
+    <div class="card">
+      <h3 data-ru="Газовые колонки" data-uz="Gazli suv isitgichlar"></h3>
+      <p data-ru="Быстрый нагрев воды"
+         data-uz="Suvni tez isitish"></p>
+    </div>
+
+    <div class="card">
+      <h3 data-ru="Отопительное оборудование" data-uz="Isitish uskunalari"></h3>
+      <p data-ru="Для дома и бизнеса"
+         data-uz="Uy va biznes uchun"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>
+      📞 Телефон / Telefon: <strong>+998 XX XXX XX XX</strong><br>
+      💬 WhatsApp: <strong>+998 XX XXX XX XX</strong>
+    </p>
+
+    <p>
+      Thermex® — зарегистрированная торговая марка.<br>
+      Сайт thermex.uz принадлежит официальному партнёру и не является представительством производителя.
+    </p>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-ru]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+}
+setLang('ru');
+</script>
+
+</body>
+</html>
