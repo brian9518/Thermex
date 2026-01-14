@@ -1,33 +1,62 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Thermex Uzbekistan — Официальный партнёр</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { margin:0; font-family: Arial, sans-serif; color:#222; }
-    header { background:#e30613; color:#fff; padding:20px; }
-    .container { max-width:1100px; margin:auto; padding:20px; }
-    .top { display:flex; justify-content:space-between; align-items:center; }
-    .lang button {
-      margin-left:10px; padding:6px 10px; border:none; cursor:pointer;
-    }
-    .hero { padding:40px 0; }
-    .btn {
-      display:inline-block; background:#e30613; color:#fff;
-      padding:12px 20px; text-decoration:none; margin-right:10px;
-    }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-    .card { border:1px solid #ddd; padding:15px; }
-    footer { background:#f5f5f5; font-size:14px; }
-  </style>
+<meta charset="UTF-8">
+<title>Thermex Uzbekistan — Официальный партнёр</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Официальный партнёр Thermex в Узбекистане. Водонагреватели, газовые колонки и отопительное оборудование. Ташкент.">
+
+<style>
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#222;background:#fff}
+a{text-decoration:none}
+.container{max-width:1200px;margin:auto;padding:20px}
+
+/* HEADER */
+header{border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:100}
+.top{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:24px;font-weight:bold;color:#e30613}
+nav a{margin:0 14px;color:#222;font-weight:500}
+.lang button{margin-left:6px}
+
+/* HERO */
+.hero{background:#f7f7f7;padding:80px 20px}
+.hero h1{font-size:40px;margin-bottom:10px}
+.hero p{font-size:18px;color:#555}
+.btn{display:inline-block;margin:15px 10px 0 0;padding:14px 26px;
+background:#e30613;color:#fff;font-size:16px}
+
+/* SECTIONS */
+.section{padding:70px 20px}
+.section h2{text-align:center;font-size:32px;margin-bottom:40px}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{border:1px solid #ddd;padding:30px;text-align:center}
+.card h3{margin-top:0}
+
+/* ADVANTAGES */
+.adv{background:#fafafa}
+.adv-item{font-size:16px}
+
+/* CONTACT */
+.contact-box{text-align:center;font-size:18px}
+
+/* FOOTER */
+footer{background:#f2f2f2;padding:40px 20px;font-size:14px;color:#555}
+</style>
 </head>
 
 <body>
 
 <header>
   <div class="container top">
-    <strong>THERMEX</strong>
+    <div class="logo">THERMEX</div>
+    <nav>
+      <a href="#catalog" data-ru="Продукция" data-uz="Mahsulotlar"></a>
+      <a href="#about" data-ru="О бренде" data-uz="Brend haqida"></a>
+      <a href="#contacts" data-ru="Контакты" data-uz="Kontaktlar"></a>
+    </nav>
     <div class="lang">
       <button onclick="setLang('ru')">RU</button>
       <button onclick="setLang('uz')">UZ</button>
@@ -35,50 +64,74 @@
   </div>
 </header>
 
-<div class="container hero">
-  <h1 data-ru="Официальный партнёр Thermex в Узбекистане"
-      data-uz="O‘zbekistonda Thermex rasmiy hamkori">
-  </h1>
+<section class="hero">
+  <div class="container">
+    <h1 data-ru="Водонагреватели и отопительное оборудование Thermex"
+        data-uz="Thermex suv isitgichlari va isitish uskunalari"></h1>
 
-  <p data-ru="Продажа оригинальных водонагревателей и отопительного оборудования Thermex"
-     data-uz="Thermex suv isitgichlari va isitish uskunalarining original savdosi">
-  </p>
+    <p data-ru="Официальный партнёр Thermex в Узбекистане"
+       data-uz="Thermex kompaniyasining O‘zbekistondagi rasmiy hamkori"></p>
 
-  <a class="btn" href="#catalog" data-ru="Каталог" data-uz="Katalog"></a>
-  <a class="btn" href="tel:+998XXXXXXXXX">📞 +998 XX XXX XX XX</a>
-</div>
+    <a href="#catalog" class="btn" data-ru="Каталог" data-uz="Katalog"></a>
+    <a href="https://t.me/Bobur_JQ" target="_blank" class="btn"
+       data-ru="Узнать цену в Telegram"
+       data-uz="Telegram orqali narxni bilish"></a>
+  </div>
+</section>
 
-<div class="container" id="catalog">
-  <h2 data-ru="Каталог продукции" data-uz="Mahsulotlar katalogi"></h2>
+<section id="catalog" class="section">
+  <div class="container">
+    <h2 data-ru="Категории продукции" data-uz="Mahsulot toifalari"></h2>
+    <div class="grid">
+      <div class="card">
+        <h3 data-ru="Электрические водонагреватели"
+            data-uz="Elektr suv isitgichlari"></h3>
+        <p data-ru="Накопительные и проточные модели"
+           data-uz="Yig‘ma va oqimli modellar"></p>
+      </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3 data-ru="Электрические бойлеры" data-uz="Elektr suv isitgichlari"></h3>
-      <p data-ru="Надёжные и энергоэффективные модели"
-         data-uz="Ishonchli va energiya tejamkor modellar"></p>
-    </div>
+      <div class="card">
+        <h3 data-ru="Газовые колонки"
+            data-uz="Gazli suv isitgichlari"></h3>
+        <p data-ru="Быстрый нагрев воды"
+           data-uz="Suvni tez isitish"></p>
+      </div>
 
-    <div class="card">
-      <h3 data-ru="Газовые колонки" data-uz="Gazli suv isitgichlar"></h3>
-      <p data-ru="Быстрый нагрев воды"
-         data-uz="Suvni tez isitish"></p>
-    </div>
-
-    <div class="card">
-      <h3 data-ru="Отопительное оборудование" data-uz="Isitish uskunalari"></h3>
-      <p data-ru="Для дома и бизнеса"
-         data-uz="Uy va biznes uchun"></p>
+      <div class="card">
+        <h3 data-ru="Отопительное оборудование"
+            data-uz="Isitish uskunalari"></h3>
+        <p data-ru="Котлы и решения для отопления"
+           data-uz="Qozonlar va isitish yechimlari"></p>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+<section id="about" class="section adv">
+  <div class="container">
+    <h2 data-ru="Почему выбирают Thermex"
+        data-uz="Nima uchun Thermex tanlanadi"></h2>
+
+    <div class="grid">
+      <div class="adv-item">✔ Европейский бренд с мировым именем</div>
+      <div class="adv-item">✔ Высокие стандарты качества</div>
+      <div class="adv-item">✔ Официальная гарантия</div>
+      <div class="adv-item">✔ Сервис и поддержка в Узбекистане</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-box" id="contacts">
+    <h2 data-ru="Контакты" data-uz="Kontaktlar"></h2>
+    <p>📍 Ташкент, Узбекистан</p>
+    <p>📞 +998 90 374 52 54</p>
+    <p>💬 <a href="https://t.me/Bobur_JQ">@Bobur_JQ</a></p>
+  </div>
+</section>
 
 <footer>
   <div class="container">
-    <p>
-      📞 Телефон / Telefon: <strong>+998 XX XXX XX XX</strong><br>
-      💬 WhatsApp: <strong>+998 XX XXX XX XX</strong>
-    </p>
-
     <p>
       Thermex® — зарегистрированная торговая марка.<br>
       Сайт thermex.uz принадлежит официальному партнёру и не является представительством производителя.
@@ -87,12 +140,12 @@
 </footer>
 
 <script>
-function setLang(lang) {
-  document.querySelectorAll('[data-ru]').forEach(el => {
-    el.textContent = el.getAttribute('data-' + lang);
-  });
+function setLang(l){
+ document.querySelectorAll('[data-ru]').forEach(e=>{
+  e.textContent = e.getAttribute('data-'+l)
+ })
 }
-setLang('ru');
+setLang('ru')
 </script>
 
 </body>
