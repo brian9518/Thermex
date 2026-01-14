@@ -1,19 +1,6 @@
-/* ===== HEADER ===== */
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 .header {
   background: #fff;
   border-bottom: 1px solid #eee;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .header-inner {
@@ -38,28 +25,10 @@ body {
   color: #e30613;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.lang-switch {
-  background: none;
-  border: none;
+.lang button {
+  margin-left: 5px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  background: #fff;
   cursor: pointer;
-  font-weight: 500;
-}
-
-.tg-btn {
-  background: #e30613;
-  color: #fff;
-  padding: 8px 14px;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.tg-btn:hover {
-  opacity: 0.9;
 }
