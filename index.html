@@ -13,11 +13,36 @@ a{text-decoration:none}
 .container{max-width:1200px;margin:auto;padding:20px}
 
 /* HEADER */
-header{border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:100}
-.top{display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:24px;font-weight:bold;color:#e30613}
-nav a{margin:0 14px;color:#222;font-weight:500}
-.lang button{margin-left:6px}
+<header class="header">
+  <div class="container header-inner">
+    
+    <div class="logo">
+      <a href="/">
+        <img src="assets/img/thermex-logo.png"
+             alt="Thermex Uzbekistan"
+             height="40">
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="#catalog" data-ru="Каталог" data-uz="Katalog"></a>
+      <a href="#about" data-ru="О компании" data-uz="Kompaniya haqida"></a>
+      <a href="#contacts" data-ru="Контакты" data-uz="Kontaktlar"></a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-switch">RU / UZ</button>
+
+      <a href="https://t.me/Bobur_JQ"
+         class="tg-btn"
+         target="_blank">
+         Telegram
+      </a>
+    </div>
+
+  </div>
+</header>
+
 /*Hero*/
 <section class="hero">
   <div class="container">
