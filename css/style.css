@@ -32,3 +32,34 @@
   background: #fff;
   cursor: pointer;
 }
+
+/* ===== HERO ===== */
+.hero {
+  background: #f7f7f7;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  background: #e30613;
+  color: #fff;
+  padding: 14px 26px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #e30613;
+  color: #e30613;
+}
