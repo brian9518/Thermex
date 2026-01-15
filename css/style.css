@@ -63,3 +63,21 @@
   border: 2px solid #e30613;
   color: #e30613;
 }
+/* BRAND HEADER */
+.header {
+  background: #e30613;
+}
+
+.header a,
+.header button {
+  color: #fff;
+}
+
+.header .nav a:hover {
+  opacity: 0.85;
+}
+
+.lang button {
+  border-color: rgba(255,255,255,0.6);
+}
+
