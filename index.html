@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+
+  <title>Thermex Uzbekistan — Официальный партнёр</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Официальный партнёр Thermex в Узбекистане. Водонагреватели, газовые колонки и отопительное оборудование. Ташкент.">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+</head>
 
-<title>Thermex Uzbekistan — Официальный партнёр</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
 
-<meta name="description" content="Официальный партнёр Thermex в Узбекистане. Водонагреватели, газовые колонки и отопительное оборудование. Ташкент.">
-
-<style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#222;background:#fff}
-a{text-decoration:none}
-.container{max-width:1200px;margin:auto;padding:20px}
-
-/* HEADER */
+<!-- HEADER -->
 <header class="header">
   <div class="container header-inner">
 
     <div class="logo">
-      <a href="/">
-        <img src="assets/image/thermex-logo.png"
-             alt="Thermex Uzbekistan"
-             height="40">
-      </a>
+      <img src="assets/image/thermex-logo.png"
+           alt="Thermex Uzbekistan"
+           height="40">
     </div>
 
     <nav class="nav">
@@ -34,91 +34,45 @@ a{text-decoration:none}
     </nav>
 
     <div class="lang">
-      <button>RU</button>
-      <button>UZ</button>
-    </div>
-
-  </div>
-</header>
-
-/*Hero*/
-<section class="hero">
-  <div class="container">
-    <h1 data-ru="Thermex — водонагреватели и отопительное оборудование"
-        data-uz="Thermex — suv isitgichlari va isitish uskunalari"></h1>
-
-    <p data-ru="Официальный партнёр Thermex в Узбекистане"
-       data-uz="Thermex kompaniyasining O‘zbekistondagi rasmiy hamkori"></p>
-
-    <a href="#catalog" class="btn"
-       data-ru="Перейти в каталог"
-       data-uz="Katalogga o‘tish"></a>
-
-    <a href="https://t.me/Bobur_JQ"
-       class="btn"
-       target="_blank"
-       data-ru="Узнать цену в Telegram"
-       data-uz="Telegram orqali narxni bilish"></a>
-  </div>
-</section>
-
-
-/* SECTIONS */
-.section{padding:70px 20px}
-.section h2{text-align:center;font-size:32px;margin-bottom:40px}
-
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-.card{border:1px solid #ddd;padding:30px;text-align:center}
-.card h3{margin-top:0}
-
-/* ADVANTAGES */
-.adv{background:#fafafa}
-.adv-item{font-size:16px}
-
-/* CONTACT */
-.contact-box{text-align:center;font-size:18px}
-
-/* FOOTER */
-footer{background:#f2f2f2;padding:40px 20px;font-size:14px;color:#555}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="container top">
-    <div class="logo">THERMEX</div>
-    <nav>
-      <a href="#catalog" data-ru="Продукция" data-uz="Mahsulotlar"></a>
-      <a href="#about" data-ru="О бренде" data-uz="Brend haqida"></a>
-      <a href="#contacts" data-ru="Контакты" data-uz="Kontaktlar"></a>
-    </nav>
-    <div class="lang">
       <button onclick="setLang('ru')">RU</button>
       <button onclick="setLang('uz')">UZ</button>
     </div>
+
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
-    <h1 data-ru="Водонагреватели и отопительное оборудование Thermex"
-        data-uz="Thermex suv isitgichlari va isitish uskunalari"></h1>
+    <h1 data-ru="Thermex — водонагреватели и отопительное оборудование"
+        data-uz="Thermex — suv isitgichlari va isitish uskunalari">
+    </h1>
 
     <p data-ru="Официальный партнёр Thermex в Узбекистане"
-       data-uz="Thermex kompaniyasining O‘zbekistondagi rasmiy hamkori"></p>
+       data-uz="Thermex kompaniyasining O‘zbekistondagi rasmiy hamkori">
+    </p>
 
-    <a href="#catalog" class="btn" data-ru="Каталог" data-uz="Katalog"></a>
-    <a href="https://t.me/Bobur_JQ" target="_blank" class="btn"
+    <a href="#catalog" class="btn"
+       data-ru="Перейти в каталог"
+       data-uz="Katalogga o‘tish">
+    </a>
+
+    <a href="https://t.me/Bobur_JQ"
+       class="btn btn-outline"
+       target="_blank"
        data-ru="Узнать цену в Telegram"
-       data-uz="Telegram orqali narxni bilish"></a>
+       data-uz="Telegram orqali narxni bilish">
+    </a>
   </div>
 </section>
 
+<!-- CATEGORIES -->
 <section id="catalog" class="section">
   <div class="container">
-    <h2 data-ru="Категории продукции" data-uz="Mahsulot toifalari"></h2>
+    <h2 data-ru="Категории продукции"
+        data-uz="Mahsulot toifalari">
+    </h2>
+
     <div class="grid">
       <div class="card">
         <h3 data-ru="Электрические водонагреватели"
@@ -144,10 +98,12 @@ footer{background:#f2f2f2;padding:40px 20px;font-size:14px;color:#555}
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="section adv">
   <div class="container">
     <h2 data-ru="Почему выбирают Thermex"
-        data-uz="Nima uchun Thermex tanlanadi"></h2>
+        data-uz="Nima uchun Thermex tanlanadi">
+    </h2>
 
     <div class="grid">
       <div class="adv-item">✔ Европейский бренд с мировым именем</div>
@@ -158,15 +114,20 @@ footer{background:#f2f2f2;padding:40px 20px;font-size:14px;color:#555}
   </div>
 </section>
 
-<section class="section">
-  <div class="container contact-box" id="contacts">
-    <h2 data-ru="Контакты" data-uz="Kontaktlar"></h2>
+<!-- CONTACTS -->
+<section id="contacts" class="section">
+  <div class="container contact-box">
+    <h2 data-ru="Контакты"
+        data-uz="Kontaktlar">
+    </h2>
+
     <p>📍 Ташкент, Узбекистан</p>
     <p>📞 +998 90 374 52 54</p>
     <p>💬 <a href="https://t.me/Bobur_JQ">@Bobur_JQ</a></p>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <p>
@@ -176,13 +137,14 @@ footer{background:#f2f2f2;padding:40px 20px;font-size:14px;color:#555}
   </div>
 </footer>
 
+<!-- LANGUAGE SCRIPT -->
 <script>
-function setLang(l){
- document.querySelectorAll('[data-ru]').forEach(e=>{
-  e.textContent = e.getAttribute('data-'+l)
- })
+function setLang(lang) {
+  document.querySelectorAll('[data-ru]').forEach(el => {
+    el.textContent = el.getAttribute('data-' + lang);
+  });
 }
-setLang('ru')
+setLang('ru');
 </script>
 
 </body>
