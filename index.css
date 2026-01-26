@@ -4232,3 +4232,45 @@ ol { font-size: 1.125rem; margin-top: 20px; margin-bottom: 20px; line-height: 1.
 .u-section-7 .u-text-1.u-text-1.u-text-1.hover {
   transform: translateX(0px) translateY(-5px) !important;
 }
+/* ================================
+   FORCE DESKTOP VIEW (NO RESPONSIVE)
+   ================================ */
+
+/* фиксируем ширину как ПК */
+html, body {
+  width: 1200px !important;
+  min-width: 1200px !important;
+  max-width: 1200px !important;
+  overflow-x: auto !important;
+}
+
+/* убираем адаптивные ограничения */
+* {
+  max-width: none !important;
+}
+
+/* ломаем все мобильные media-запросы */
+@media screen and (max-width: 1400px),
+       screen and (max-width: 1200px),
+       screen and (max-width: 1024px),
+       screen and (max-width: 992px),
+       screen and (max-width: 768px),
+       screen and (max-width: 576px),
+       screen and (max-width: 480px) {
+
+  html, body {
+    width: 1200px !important;
+    min-width: 1200px !important;
+    max-width: 1200px !important;
+  }
+
+  .u-sheet,
+  .u-section,
+  .u-layout,
+  .u-layout-row,
+  .u-layout-cell {
+    width: 1200px !important;
+    min-width: 1200px !important;
+    max-width: 1200px !important;
+  }
+}
