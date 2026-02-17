@@ -4909,3 +4909,10 @@ ol { font-size: 1.125rem; margin-top: 20px; margin-bottom: 20px; line-height: 1.
 .u-section-5 .u-text-1.u-text-1.u-text-1.hover {
   transform: translateX(0px) translateY(-5px) !important;
 }
+body {
+  min-width: 1200px;
+}
+
+html {
+  overflow-x: auto;
+}
