@@ -852,19 +852,19 @@ Information on the site is not a public offer." data-lang-uz="
 }</style>
 
 	  <script>
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".u-video-poster").forEach(btn => {
-    btn.addEventListener("click", function () {
-      const wrap = btn.closest(".embed-responsive");
-      const iframe = wrap.querySelector("iframe");
+document.querySelectorAll(".u-video-poster").forEach(btn => {
+  btn.onclick = function () {
+    const wrap = btn.closest(".embed-responsive");
+    const iframe = wrap.querySelector("iframe");
 
-      if (iframe.dataset.src) {
-        iframe.src = iframe.dataset.src + "&autoplay=1";
-      }
+    let src = iframe.getAttribute("data-src");
 
-      btn.style.display = "none";
-    });
-  });
+    if (src) {
+      iframe.src = src + "&autoplay=1";
+    }
+
+    btn.style.display = "none";
+  };
 });
 </script>
 </body></html>
