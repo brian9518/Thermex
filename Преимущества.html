@@ -173,7 +173,14 @@ display: none !important
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="custom-expanded u-align-center u-shading u-video u-video-contain u-video-1">
           <div class="embed-responsive embed-responsive-1">
-            <iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" class="embed-responsive-item lazyload" data-src="https://www.youtube.com/embed/YSIiaWQRmUA?mute=0&amp;showinfo=0&amp;controls=1&amp;start=0" data-poster="/images/ChatGPTImageJan29202612_21_57AM.png" frameborder="0" allowfullscreen="" loading="lazy"></iframe>
+           <iframe 
+  style="position:absolute;top:0;left:0;width:100%;height:100%;"
+  class="embed-responsive-item"
+  data-src="https://www.youtube.com/embed/YSIiaWQRmUA?controls=1"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
             <button class="u-video-poster u-video-poster-1" data-src="/images/ChatGPTImageJan29202612_21_57AM.png"></button>
           </div>
         </div>
@@ -249,5 +256,22 @@ Information on the site is not a public offer." data-lang-uz="
 © 2026 ООО «SAN-NEO». Барча хуқуқлар ҳимояланган.
 Веб-сайтдаги маълумотлар оммавий таклиф сифатида тан олинмайди."> © 2026 ООО «SAN-NEO». Все права защищены.
 Информация на сайте не является публичной офертой. </p></footer>
-  
+
+<script>
+document.querySelectorAll(".u-video-poster").forEach(btn => {
+  btn.onclick = function () {
+    const wrap = btn.closest(".embed-responsive");
+    const iframe = wrap.querySelector("iframe");
+
+    let src = iframe.getAttribute("data-src");
+
+    if (src) {
+      iframe.src = src + "&autoplay=1";
+    }
+
+    btn.style.display = "none";
+  };
+});
+</script>
+	  
 </body></html>
