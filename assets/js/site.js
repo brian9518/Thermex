@@ -2,10 +2,13 @@
 (function () {
   'use strict';
 
-  // Contact channels used by the request forms.
+  // URL of the Cloudflare Worker from telegram-worker/ (see its README).
+  // While empty, forms fall back to opening WhatsApp.
+  var LEAD_ENDPOINT = '';
+
+  // WhatsApp number for the sales line; service forms override it via data-wa.
   var CONTACT = {
-    whatsapp: '998887090777',
-    telegram: 'bobur_jq'
+    whatsapp: '998903745254'
   };
 
   var PRODUCTS = {
@@ -250,27 +253,52 @@
     });
   });
 
-  /* Request forms → WhatsApp / Telegram with prefilled message */
+  /* Request forms → Telegram group (via LEAD_ENDPOINT) or WhatsApp */
   $$('form[data-lead]').forEach(function (form) {
+    var submitBtn = $('button[value="send"]', form);
+    var label = submitBtn ? submitBtn.innerHTML : '';
+    var setState = function (state) {
+      form.classList.remove('is-sent', 'is-wa', 'is-error');
+      if (state) form.classList.add(state);
+    };
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!form.reportValidity()) return;
       var d = new FormData(form);
-      var lines = ['Заявка с сайта thermex.uz', 'Имя: ' + (d.get('name') || '')];
-      if (d.get('phone')) lines.push('Телефон: ' + d.get('phone'));
-      if (d.get('topic')) lines.push('Тема: ' + d.get('topic'));
-      if (d.get('message')) lines.push('Сообщение: ' + d.get('message'));
-      var text = lines.join('\n');
-      var via = (e.submitter && e.submitter.value) || 'whatsapp';
-      var url;
-      if (via === 'telegram') {
-        if (navigator.clipboard) navigator.clipboard.writeText(text).catch(function () {});
-        url = 'https://t.me/' + CONTACT.telegram;
-      } else {
-        url = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
+      var via = (e.submitter && e.submitter.value) || 'send';
+
+      if (via === 'whatsapp' || !LEAD_ENDPOINT) {
+        var lines = ['Заявка с сайта thermex.uz', 'Имя: ' + (d.get('name') || '')];
+        if (d.get('phone')) lines.push('Телефон: ' + d.get('phone'));
+        if (d.get('topic')) lines.push('Тема: ' + d.get('topic'));
+        if (d.get('message')) lines.push('Сообщение: ' + d.get('message'));
+        var wa = form.getAttribute('data-wa') || CONTACT.whatsapp;
+        window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+        setState('is-wa');
+        return;
       }
-      window.open(url, '_blank', 'noopener');
-      form.classList.add('is-sent');
+
+      setState(null);
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Отправляем…';
+      fetch(LEAD_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: d.get('name'), phone: d.get('phone'), topic: d.get('topic'),
+          message: d.get('message'), website: d.get('website'),
+          page: document.title + ' — ' + decodeURIComponent(location.pathname)
+        })
+      }).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        setState('is-sent');
+        form.reset();
+      }).catch(function () {
+        setState('is-error');
+      }).then(function () {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = label;
+      });
     });
   });
 
