@@ -145,18 +145,27 @@
     reveals.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* Product filters */
+  /* Product filters: several chip groups on one grid combine (brand AND volume) */
   $$('[data-filters]').forEach(function (group) {
-    var grid = document.getElementById(group.getAttribute('data-filters'));
+    var gridId = group.getAttribute('data-filters');
+    var grid = document.getElementById(gridId);
     $$('.chip', group).forEach(function (chip) {
       chip.addEventListener('click', function () {
         $$('.chip', group).forEach(function (c) { c.classList.remove('is-active'); c.setAttribute('aria-pressed', 'false'); });
         chip.classList.add('is-active');
         chip.setAttribute('aria-pressed', 'true');
-        var f = chip.getAttribute('data-filter');
+        var active = $$('[data-filters="' + gridId + '"] .chip.is-active')
+          .map(function (c) { return c.getAttribute('data-filter'); })
+          .filter(function (f) { return f !== 'all'; });
+        var shown = 0;
         $$('.product', grid).forEach(function (p) {
-          p.hidden = !(f === 'all' || (' ' + p.getAttribute('data-tags') + ' ').indexOf(' ' + f + ' ') > -1);
+          var tags = ' ' + p.getAttribute('data-tags') + ' ';
+          var ok = active.every(function (f) { return tags.indexOf(' ' + f + ' ') > -1; });
+          p.hidden = !ok;
+          if (ok) shown++;
         });
+        var empty = $('.filter-empty', grid.parentNode);
+        if (empty) empty.hidden = shown > 0;
       });
     });
   });
@@ -164,15 +173,32 @@
   /* Product modal */
   var modal = $('#product-modal');
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
-  function openProduct(id) {
-    var p = PRODUCTS[id];
+  // Models from the price list have no spec entry: build a short card from the button's data.
+  function productFromButton(b) {
+    var img = b.closest('.product') && b.closest('.product').querySelector('.product-media img');
+    var specs = [['Бренд', b.getAttribute('data-brand')], ['Объём', b.getAttribute('data-vol') + ' л']];
+    if (b.getAttribute('data-mount')) specs.push(['Монтаж', b.getAttribute('data-mount')]);
+    if (b.getAttribute('data-kind')) specs.push(['Тип нагрева', b.getAttribute('data-kind')]);
+    if (b.getAttribute('data-origin')) specs.push(['Производство', b.getAttribute('data-origin')]);
+    return {
+      title: b.getAttribute('data-name'),
+      label: b.getAttribute('data-brand'),
+      images: [img ? img.getAttribute('src') : ''],
+      desc: 'Подробные характеристики, наличие и цену уточняйте у менеджера — ответим в течение 15 минут в рабочее время.',
+      specs: specs
+    };
+  }
+  function openProduct(id, btn) {
+    var p = PRODUCTS[id] || (btn && btn.hasAttribute('data-name') ? productFromButton(btn) : null);
     if (!p || !modal) return;
+    var title = p.title || 'Thermex ' + p.name;
+    var imgs = p.images.map(function (x) { return x.charAt(0) === '/' ? x : IMG + x; });
     var main = $('.modal-main img', modal);
-    main.src = IMG + p.images[0];
-    main.alt = 'Водонагреватель Thermex ' + p.name;
+    main.src = imgs[0];
+    main.alt = 'Водонагреватель ' + title;
     var thumbs = $('.thumbs', modal);
-    thumbs.innerHTML = p.images.length > 1 ? p.images.map(function (src, i) {
-      return '<button type="button" class="' + (i ? '' : 'is-active') + '" data-src="' + IMG + src + '" aria-label="Фото ' + (i + 1) + '"><img src="' + IMG + src + '" alt=""></button>';
+    thumbs.innerHTML = imgs.length > 1 ? imgs.map(function (src, i) {
+      return '<button type="button" class="' + (i ? '' : 'is-active') + '" data-src="' + src + '" aria-label="Фото ' + (i + 1) + '"><img src="' + src + '" alt=""></button>';
     }).join('') : '';
     $$('button', thumbs).forEach(function (b) {
       b.addEventListener('click', function () {
@@ -181,19 +207,19 @@
         main.src = b.getAttribute('data-src');
       });
     });
-    $('.product-series', modal).textContent = 'Серия ' + p.series;
-    $('#modal-title', modal).textContent = 'Thermex ' + p.name;
+    $('.product-series', modal).textContent = p.label || 'Серия ' + p.series;
+    $('#modal-title', modal).textContent = title;
     $('.desc', modal).textContent = p.desc;
     $('.spec-table tbody', modal).innerHTML = p.specs.map(function (r) {
       return '<tr><th scope="row">' + esc(r[0]) + '</th><td>' + esc(r[1]) + '</td></tr>';
     }).join('');
-    var msg = 'Здравствуйте! Интересует водонагреватель Thermex ' + p.name + '. Подскажите цену и наличие.';
+    var msg = 'Здравствуйте! Интересует водонагреватель ' + title + '. Подскажите цену и наличие.';
     $('[data-wa]', modal).href = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(msg);
     openLayer(modal);
   }
   if (modal) {
     $$('[data-product]').forEach(function (b) {
-      b.addEventListener('click', function (e) { e.preventDefault(); openProduct(b.getAttribute('data-product')); });
+      b.addEventListener('click', function (e) { e.preventDefault(); openProduct(b.getAttribute('data-product'), b); });
     });
     $$('[data-close-modal]', modal).forEach(function (b) { b.addEventListener('click', function () { closeLayer(modal); }); });
     if (location.hash.indexOf('#model-') === 0) openProduct(location.hash.slice(7));
