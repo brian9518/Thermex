@@ -383,18 +383,13 @@
       </div>
       <form class="form" data-lead novalidate>
         <h3>Оставить заявку</h3>
-        <p class="hint">Заявка сразу придёт нашему менеджеру — перезвоним в течение 15 минут в рабочее время.</p>
+        <p class="hint">Нажмите кнопку — откроется WhatsApp с готовым сообщением. Ответим в течение 15 минут в рабочее время.</p>
         <div class="field"><label for="lf-name">Имя</label><input id="lf-name" name="name" required autocomplete="name" placeholder="Ваше имя"></div>
         <div class="field"><label for="lf-phone">Телефон</label><input id="lf-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+998 __ ___-__-__" pattern="[0-9+()\s\-]{7,}"></div>
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
         <label class="consent"><input type="checkbox" required checked> Согласен(на) на обработку персональных данных</label>
-        <div class="form-send">
-          <button class="btn btn-primary" type="submit" value="send"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Отправить заявку</button>
-          <button class="btn btn-ghost" type="submit" value="whatsapp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</button>
-        </div>
-        <p class="form-ok" role="status">Спасибо! Заявка отправлена — мы свяжемся с вами в течение 15 минут в рабочее время.</p>
+        <button class="btn btn-primary btn-block" type="submit" value="whatsapp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Отправить в WhatsApp</button>
         <p class="form-wa" role="status">Отправьте сообщение в открывшемся WhatsApp — мы ответим в течение 15 минут в рабочее время.</p>
-        <p class="form-err" role="alert">Не удалось отправить заявку. Позвоните нам по номеру <a href="tel:+998903745254">+998 90 374-52-54</a> или напишите в WhatsApp.</p>
       </form>
     </div>
   </div>
