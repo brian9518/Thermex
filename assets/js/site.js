@@ -4,7 +4,7 @@
 
   // Contact channels used by the request forms.
   var CONTACT = {
-    whatsapp: '998887090777',
+    whatsapp: '998903745254', // sales; service forms override via data-wa
     telegram: 'bobur_jq'
   };
 
@@ -267,7 +267,7 @@
         if (navigator.clipboard) navigator.clipboard.writeText(text).catch(function () {});
         url = 'https://t.me/' + CONTACT.telegram;
       } else {
-        url = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
+        url = 'https://wa.me/' + (form.getAttribute('data-wa') || CONTACT.whatsapp) + '?text=' + encodeURIComponent(text);
       }
       window.open(url, '_blank', 'noopener');
       form.classList.add('is-sent');
