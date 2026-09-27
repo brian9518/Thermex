@@ -142,13 +142,13 @@
       <div><span class="eyebrow">Модели в наличии</span><h2 class="h2">Популярные водонагреватели</h2></div>
       <div class="filters" data-filters="home-products" role="group" aria-label="Фильтр по объёму">
           <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Все модели</button>
-          <button type="button" class="chip" data-filter="small" aria-pressed="false">10–15 л</button>
-          <button type="button" class="chip" data-filter="50" aria-pressed="false">50 л</button>
-          <button type="button" class="chip" data-filter="80" aria-pressed="false">80 л</button>
+          <button type="button" class="chip" data-filter="v-small" aria-pressed="false">10–15 л</button>
+          <button type="button" class="chip" data-filter="v-50" aria-pressed="false">50 л</button>
+          <button type="button" class="chip" data-filter="v-80" aria-pressed="false">80 л</button>
         </div>
     </div>
     <div class="products" id="home-products">
-      <article class="product reveal" data-tags="50">
+      <article class="product reveal" data-tags="b-thermex v-50">
         <div class="product-media">
           <div class="tags"><span class="tag tag-new">New</span><span class="tag">Накопительный</span></div>
           <div class="product-vol">50<small>литров</small></div>
@@ -169,7 +169,7 @@
           </div>
         </div>
       </article>
-      <article class="product reveal" data-tags="50">
+      <article class="product reveal" data-tags="b-thermex v-50">
         <div class="product-media">
           <div class="tags"><span class="tag tag-new">New</span><span class="tag">Накопительный</span></div>
           <div class="product-vol">50<small>литров</small></div>
@@ -190,7 +190,7 @@
           </div>
         </div>
       </article>
-      <article class="product reveal" data-tags="80">
+      <article class="product reveal" data-tags="b-thermex v-80">
         <div class="product-media">
           <div class="tags"><span class="tag tag-new">New</span><span class="tag">Накопительный</span></div>
           <div class="product-vol">80<small>литров</small></div>
@@ -211,7 +211,7 @@
           </div>
         </div>
       </article>
-      <article class="product reveal" data-tags="small">
+      <article class="product reveal" data-tags="b-thermex v-small">
         <div class="product-media">
           <div class="tags"><span class="tag">Малолитражный</span></div>
           <div class="product-vol">10<small>литров</small></div>
@@ -232,7 +232,7 @@
           </div>
         </div>
       </article>
-      <article class="product reveal" data-tags="small">
+      <article class="product reveal" data-tags="b-thermex v-small">
         <div class="product-media">
           <div class="tags"><span class="tag">Малолитражный</span></div>
           <div class="product-vol">10<small>литров</small></div>
@@ -253,7 +253,7 @@
           </div>
         </div>
       </article>
-      <article class="product reveal" data-tags="small">
+      <article class="product reveal" data-tags="b-thermex v-small">
         <div class="product-media">
           <div class="tags"><span class="tag">Малолитражный</span></div>
           <div class="product-vol">15<small>литров</small></div>
@@ -274,6 +274,7 @@
           </div>
         </div>
       </article></div>
+    <div class="more-row reveal"><a class="btn btn-dark" href="/Каталог.html">Весь каталог — 54 моделей<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
   </div>
 </section>
 
@@ -383,18 +384,13 @@
       </div>
       <form class="form" data-lead novalidate>
         <h3>Оставить заявку</h3>
-        <p class="hint">Заявка сразу придёт нашему менеджеру — перезвоним в течение 15 минут в рабочее время.</p>
+        <p class="hint">Нажмите кнопку — откроется WhatsApp с готовым сообщением. Ответим в течение 15 минут в рабочее время.</p>
         <div class="field"><label for="lf-name">Имя</label><input id="lf-name" name="name" required autocomplete="name" placeholder="Ваше имя"></div>
         <div class="field"><label for="lf-phone">Телефон</label><input id="lf-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+998 __ ___-__-__" pattern="[0-9+()\s\-]{7,}"></div>
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
         <label class="consent"><input type="checkbox" required checked> Согласен(на) на обработку персональных данных</label>
-        <div class="form-send">
-          <button class="btn btn-primary" type="submit" value="send"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>Отправить заявку</button>
-          <button class="btn btn-ghost" type="submit" value="whatsapp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</button>
-        </div>
-        <p class="form-ok" role="status">Спасибо! Заявка отправлена — мы свяжемся с вами в течение 15 минут в рабочее время.</p>
+        <button class="btn btn-primary btn-block" type="submit" value="whatsapp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Отправить в WhatsApp</button>
         <p class="form-wa" role="status">Отправьте сообщение в открывшемся WhatsApp — мы ответим в течение 15 минут в рабочее время.</p>
-        <p class="form-err" role="alert">Не удалось отправить заявку. Позвоните нам по номеру <a href="tel:+998903745254">+998 90 374-52-54</a> или напишите в WhatsApp.</p>
       </form>
     </div>
   </div>
