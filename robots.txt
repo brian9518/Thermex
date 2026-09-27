@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thermex.uz/sitemap.xml
