@@ -189,7 +189,8 @@
     };
   }
   function openProduct(id, btn) {
-    var p = PRODUCTS[id] || (btn && btn.hasAttribute('data-name') ? productFromButton(btn) : null);
+    var p = PRODUCTS[id] || (window.THERMEX_CATALOG && window.THERMEX_CATALOG[id]) ||
+      (btn && btn.hasAttribute('data-name') ? productFromButton(btn) : null);
     if (!p || !modal) return;
     var title = p.title || 'Thermex ' + p.name;
     var imgs = p.images.map(function (x) { return x.charAt(0) === '/' ? x : IMG + x; });
