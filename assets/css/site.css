@@ -180,6 +180,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .product[hidden] { display: none; }
 .product-media { position: relative; display: grid; place-items: center; height: 300px; background: linear-gradient(180deg, var(--surface) 0%, #fff 100%); padding: 24px; }
 .product-media img { max-height: 250px; width: auto; transition: transform .4s; }
+.product-media img, .modal-main img, .thumbs img { mix-blend-mode: multiply; }
 .product:hover .product-media img { transform: scale(1.04); }
 .tags { position: absolute; top: 16px; left: 16px; display: flex; gap: 6px; }
 .tag { padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .08); }
