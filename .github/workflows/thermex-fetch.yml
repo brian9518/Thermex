@@ -1,0 +1,27 @@
+# Temporary: downloads product photos and specs from thermex.ru on GitHub's
+# servers (the editing sandbox has no access to it) and commits them to this
+# branch. Remove before merging to the default branch.
+name: Fetch thermex.ru data
+on:
+  push:
+    branches: [claude/first-pr-workflow-fdfkvl]
+    paths: ['tools/thermex_fetch.py', '.github/workflows/thermex-fetch.yml']
+permissions:
+  contents: write
+concurrency: thermex-fetch
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/thermex_fetch.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add _scrape
+          git diff --cached --quiet && exit 0
+          git commit -m "Fetch thermex.ru data"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
