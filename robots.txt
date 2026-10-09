@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thermex.uz/sitemap.xml
+Sitemap: https://www.thermex.uz/sitemap.xml
