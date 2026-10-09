@@ -81,12 +81,12 @@ def ic(name, cls='icon'):
     return f'<svg class="{cls}" aria-hidden="true"><use href="#i-{name}"/></svg>'
 
 NAV = [
-    ('Каталог', '/Каталог.html'),
-    ('Водонагреватели', '/Водонагреватели.html'),
-    ('Преимущества', '/Преимущества.html'),
-    ('Сервис', '/Сервис.html'),
-    ('О компании', '/О-компании.html'),
-    ('Контакты', '/Контакты.html'),
+    ('Каталог', '/catalog.html'),
+    ('Водонагреватели', '/water-heaters.html'),
+    ('Преимущества', '/advantages.html'),
+    ('Сервис', '/service.html'),
+    ('О компании', '/about.html'),
+    ('Контакты', '/contacts.html'),
 ]
 
 PRODUCTS = [
@@ -412,7 +412,7 @@ def catalog_grid(grid_id='catalog-products'):
         {chip('all', 'Любой объём', n, True)}{''.join(chip(v, l, by_vol.get(v, 0)) for v, l in vols)}
       </div>
     </div>
-    <p class="filter-empty" hidden>Нет моделей с такими параметрами — <a href="/Контакты.html#request">напишите нам</a>, подберём под заказ.</p>'''
+    <p class="filter-empty" hidden>Нет моделей с такими параметрами — <a href="/contacts.html#request">напишите нам</a>, подберём под заказ.</p>'''
     return filters, f'<div class="products" id="{grid_id}">' + ''.join(catalog_card(c) for c in CATALOG) + '</div>'
 
 def head(title, desc, path, og_image=IMG + 'og-cover.jpg', scripts=(), noindex=False):
@@ -491,7 +491,7 @@ def header(active):
     <nav class="nav" aria-label="Основное меню">{links}</nav>
     <div class="header-cta">
       <a class="header-phone" href="tel:{PHONE_TEL}"><strong>{PHONE}</strong><small>Отдел продаж · WhatsApp / Telegram</small></a>
-      <a class="btn btn-primary btn-sm" href="/Контакты.html#request">Оставить заявку</a>
+      <a class="btn btn-primary btn-sm" href="/contacts.html#request">Оставить заявку</a>
     </div>
     <button class="burger" type="button" data-open-drawer aria-label="Открыть меню" aria-controls="drawer">{ic('menu')}</button>
   </div>
@@ -606,9 +606,9 @@ def footer(service=False):
         <h4>Покупателям</h4>
         <ul>
           <li><a href="{PDF}" target="_blank" rel="noopener">Каталог PDF</a></li>
-          <li><a href="/Водонагреватели.html#picker">Подбор объёма</a></li>
-          <li><a href="/Сервис.html">Гарантия и ремонт</a></li>
-          <li><a href="/Преимущества.html#how">Как устроен водонагреватель</a></li>
+          <li><a href="/water-heaters.html#picker">Подбор объёма</a></li>
+          <li><a href="/service.html">Гарантия и ремонт</a></li>
+          <li><a href="/advantages.html#how">Как устроен водонагреватель</a></li>
         </ul>
       </div>
       <div>
@@ -726,7 +726,7 @@ def home():
         ('Кухня и офис', 'Компактно — над или под мойку', '10–15 л', 'p-nobel-15o.webp', 'droplet'),
     ]
     cat_html = ''.join(f'''
-      <a class="cat reveal" href="/Каталог.html">
+      <a class="cat reveal" href="/catalog.html">
         <span class="arrow">{ic('arrow-ur')}</span>
         <h3>{t}</h3><p>{d}</p><span class="vol">{v}</span>
         <img src="{IMG}{img}" alt="" loading="lazy">
@@ -739,8 +739,8 @@ def home():
       <h1>Водонагреватели <span>Thermex</span> с гарантией и сервисом</h1>
       <p class="lead">Электрические накопительные водонагреватели для квартиры, дома и дачи. Подбор модели, доставка по Узбекистану, установка и официальное гарантийное обслуживание.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="/Каталог.html">Смотреть каталог{ic('arrow')}</a>
-        <a class="btn btn-ghost" href="/Водонагреватели.html#picker">Подобрать объём</a>
+        <a class="btn btn-primary" href="/catalog.html">Смотреть каталог{ic('arrow')}</a>
+        <a class="btn btn-ghost" href="/water-heaters.html#picker">Подобрать объём</a>
       </div>
       <ul class="hero-points">
         <li>{ic('shield')}Гарантия до 5 лет</li>
@@ -771,7 +771,7 @@ def home():
   <div class="container">
     <div class="section-head reveal">
       <div><span class="eyebrow">Выбор по задаче</span><h2 class="h2">Для какого помещения?</h2></div>
-      <a class="btn btn-ghost" href="/Водонагреватели.html">Как выбрать{ic('arrow')}</a>
+      <a class="btn btn-ghost" href="/water-heaters.html">Как выбрать{ic('arrow')}</a>
     </div>
     <div class="cats">{cat_html}</div>
   </div>
@@ -784,7 +784,7 @@ def home():
       {f}
     </div>
     {grid}
-    <div class="more-row reveal"><a class="btn btn-dark" href="/Каталог.html">Весь каталог — {len(CATALOG)} моделей{ic('arrow')}</a></div>
+    <div class="more-row reveal"><a class="btn btn-dark" href="/catalog.html">Весь каталог — {len(CATALOG)} моделей{ic('arrow')}</a></div>
   </div>
 </section>
 
@@ -795,7 +795,7 @@ def home():
     <div class="section-head reveal">
       <div><span class="eyebrow">Почему нам доверяют</span><h2 class="h2">Покупайте у официального партнёра</h2>
       <p>ООО «SAN-NEO» обеспечивает поставку оборудования, сервисное обслуживание и гарантийную поддержку для частных клиентов и организаций.</p></div>
-      <a class="btn btn-ghost" href="/О-компании.html">О компании{ic('arrow')}</a>
+      <a class="btn btn-ghost" href="/about.html">О компании{ic('arrow')}</a>
     </div>
     {features(WHY)}
   </div>
@@ -817,7 +817,7 @@ def home():
         <li><span class="tick">{ic('check')}</span><span>Только оригинальные запчасти Thermex</span></li>
       </ul>
       <div class="hero-actions" style="margin-top:0">
-        <a class="btn btn-primary" href="/Сервис.html">Подробнее о сервисе{ic('arrow')}</a>
+        <a class="btn btn-primary" href="/service.html">Подробнее о сервисе{ic('arrow')}</a>
         <a class="btn btn-ghost" href="tel:{SVC_TEL}">{ic('phone')}Вызвать мастера</a>
       </div>
     </div>
@@ -845,7 +845,7 @@ def catalog():
     extra = f'''
     <div class="hero-actions">
       <a class="btn btn-primary" href="{PDF}" target="_blank" rel="noopener">{ic('file-down')}Скачать каталог PDF</a>
-      <a class="btn btn-ghost" href="/Водонагреватели.html#picker">Подобрать объём</a>
+      <a class="btn btn-ghost" href="/water-heaters.html#picker">Подобрать объём</a>
     </div>'''
     body = page_hero('Каталог', 'Каталог водонагревателей Thermex, Garanterm и Etalon', f'{len(CATALOG)} моделей от официального партнёра в Узбекистане. Выберите бренд и объём, нажмите «Подробнее» — и узнайте цену у менеджера.', extra) + f'''
 <section class="section">
@@ -869,7 +869,7 @@ def catalog():
 {cta_block('Не нашли нужную модель?', 'В каталоге Thermex более сотни моделей. Напишите нам — привезём нужный водонагреватель под заказ.')}
 {product_modal()}
 '''
-    write('Каталог.html', head('Каталог водонагревателей Thermex, Garanterm, Etalon — Ташкент', 'Каталог водонагревателей Thermex, Garanterm и Etalon в Узбекистане: Thermo, Edisson, ERS, ESS, Titan, Giro, Nova, Nobel, Origin и другие. Цены по запросу, доставка и установка.', '/Каталог.html', scripts=CATALOG_JS) + header('/Каталог.html') + body + footer() + '</body>\n</html>\n')
+    write('catalog.html', head('Каталог водонагревателей Thermex, Garanterm, Etalon — Ташкент', 'Каталог водонагревателей Thermex, Garanterm и Etalon в Узбекистане: Thermo, Edisson, ERS, ESS, Titan, Giro, Nova, Nobel, Origin и другие. Цены по запросу, доставка и установка.', '/catalog.html', scripts=CATALOG_JS) + header('/catalog.html') + body + footer() + '</body>\n</html>\n')
 
 # ------------------------------------------------------------------ Water heaters (how to choose)
 def heaters():
@@ -916,13 +916,13 @@ def heaters():
       {f}
     </div>
     {grid}
-    <div class="more-row reveal"><a class="btn btn-dark" href="/Каталог.html">Весь каталог — {len(CATALOG)} моделей{ic('arrow')}</a></div>
+    <div class="more-row reveal"><a class="btn btn-dark" href="/catalog.html">Весь каталог — {len(CATALOG)} моделей{ic('arrow')}</a></div>
   </div>
 </section>
 {cta_block()}
 {product_modal()}
 '''
-    write('Водонагреватели.html', head('Как выбрать водонагреватель Thermex — квартира, дом, дача', 'Водонагреватели Thermex для квартир, частных домов, дач и новостроек в Узбекистане. Калькулятор объёма, советы по выбору, модели в наличии.', '/Водонагреватели.html', scripts=CATALOG_JS) + header('/Водонагреватели.html') + body + footer() + '</body>\n</html>\n')
+    write('water-heaters.html', head('Как выбрать водонагреватель Thermex — квартира, дом, дача', 'Водонагреватели Thermex для квартир, частных домов, дач и новостроек в Узбекистане. Калькулятор объёма, советы по выбору, модели в наличии.', '/water-heaters.html', scripts=CATALOG_JS) + header('/water-heaters.html') + body + footer() + '</body>\n</html>\n')
 
 # ------------------------------------------------------------------ Advantages
 def advantages():
@@ -974,7 +974,7 @@ def advantages():
 </section>
 {cta_block()}
 '''
-    write('Преимущества.html', head('Преимущества водонагревателей Thermex в Узбекистане', 'Преимущества водонагревателей Thermex в Узбекистане: официальная гарантия, надёжность, энергоэффективность, сервисный центр и профессиональная установка.', '/Преимущества.html') + header('/Преимущества.html') + body + footer() + '</body>\n</html>\n')
+    write('advantages.html', head('Преимущества водонагревателей Thermex в Узбекистане', 'Преимущества водонагревателей Thermex в Узбекистане: официальная гарантия, надёжность, энергоэффективность, сервисный центр и профессиональная установка.', '/advantages.html') + header('/advantages.html') + body + footer() + '</body>\n</html>\n')
 
 # ------------------------------------------------------------------ Service
 def service():
@@ -1027,7 +1027,7 @@ def service():
 </section>
 {cta_block('Нужен ремонт или установка?', 'Опишите проблему — мастер свяжется с вами в течение 15 минут в рабочее время.', service=True)}
 '''
-    write('Сервис.html', head('Сервис и ремонт водонагревателей Thermex в Узбекистане', 'Официальный сервис Thermex в Ташкенте: установка, гарантийный и постгарантийный ремонт, обслуживание водонагревателей, оригинальные запчасти.', '/Сервис.html') + header('/Сервис.html') + body + footer(service=True) + '</body>\n</html>\n')
+    write('service.html', head('Сервис и ремонт водонагревателей Thermex в Узбекистане', 'Официальный сервис Thermex в Ташкенте: установка, гарантийный и постгарантийный ремонт, обслуживание водонагревателей, оригинальные запчасти.', '/service.html') + header('/service.html') + body + footer(service=True) + '</body>\n</html>\n')
 
 # ------------------------------------------------------------------ About
 def about():
@@ -1065,7 +1065,7 @@ def about():
 </section>
 {cta_block('Станьте нашим партнёром', 'Работаем с частными клиентами, строительными компаниями и магазинами. Предложим условия оптовых поставок.')}
 '''
-    write('О-компании.html', head('О компании — официальный партнёр Thermex в Узбекистане', 'ООО «SAN-NEO» — официальный партнёр Thermex и дистрибьютор Etalon и Garanterm в Узбекистане. Поставка, установка, гарантийное и сервисное обслуживание.', '/О-компании.html', IMG + 'og-cover.jpg') + header('/О-компании.html') + body + footer() + '</body>\n</html>\n')
+    write('about.html', head('О компании — официальный партнёр Thermex в Узбекистане', 'ООО «SAN-NEO» — официальный партнёр Thermex и дистрибьютор Etalon и Garanterm в Узбекистане. Поставка, установка, гарантийное и сервисное обслуживание.', '/about.html', IMG + 'og-cover.jpg') + header('/about.html') + body + footer() + '</body>\n</html>\n')
 
 # ------------------------------------------------------------------ Contacts
 def contacts():
@@ -1091,26 +1091,32 @@ def contacts():
   </div>
 </section>
 '''
-    write('Контакты.html', head('Контакты — Thermex Узбекистан', 'Контакты официального партнёра Thermex в Узбекистане: телефон, Telegram, e-mail, адрес в Ташкенте и режим работы.', '/Контакты.html') + header('/Контакты.html') + body + footer() + '</body>\n</html>\n')
+    write('contacts.html', head('Контакты — Thermex Узбекистан', 'Контакты официального партнёра Thermex в Узбекистане: телефон, Telegram, e-mail, адрес в Ташкенте и режим работы.', '/contacts.html') + header('/contacts.html') + body + footer() + '</body>\n</html>\n')
 
 # ------------------------------------------------------------------ 404 + legacy redirect
 def not_found():
     extra = f'''
     <div class="hero-actions">
       <a class="btn btn-primary" href="/">На главную</a>
-      <a class="btn btn-ghost" href="/Каталог.html">Каталог</a>
-      <a class="btn btn-ghost" href="/Контакты.html">Контакты</a>
+      <a class="btn btn-ghost" href="/catalog.html">Каталог</a>
+      <a class="btn btn-ghost" href="/contacts.html">Контакты</a>
     </div>'''
     body = page_hero('Ошибка 404', 'Страница не найдена', 'Возможно, ссылка устарела или в адресе опечатка. Выберите нужный раздел ниже или позвоните нам.', extra)
     write('404.html', head('Страница не найдена — Thermex Узбекистан', 'Такой страницы на сайте нет.', '/404.html', noindex=True) + header('') + body + footer() + '</body>\n</html>\n')
 
+# Old addresses (Cyrillic file names from the Nicepage export) redirect to the new ones.
+LEGACY = [('Главная.html', '/')] + [(f'{ru}.html', f'/{en}.html') for ru, en in [('Каталог', 'catalog'), ('Водонагреватели', 'water-heaters'), ('Преимущества', 'advantages'), ('Сервис', 'service'), ('О-компании', 'about'), ('Контакты', 'contacts')]]
+
 def legacy_redirect():
-    # The Nicepage export linked /Главная.html; keep it as a redirect to the home page.
-    write('Главная.html', '<!DOCTYPE html>\n<html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="' + SITE + '/"></head><body></body></html>\n')
+    for old, new in LEGACY:
+        write(old, '<!DOCTYPE html>\n<html lang="ru"><head><meta charset="utf-8">'
+              f'<meta http-equiv="refresh" content="0;url={new}"><link rel="canonical" href="{SITE}{new}">'
+              f'<script>location.replace({json.dumps(new)} + location.hash);</script>'
+              f'<title>Перенаправление</title></head><body><a href="{new}">{SITE}{new}</a></body></html>\n')
 
 # ------------------------------------------------------------------ sitemap + robots
-SITEMAP = [('/', '1.0'), ('/Каталог.html', '0.9'), ('/Водонагреватели.html', '0.9'), ('/Преимущества.html', '0.7'),
-           ('/Сервис.html', '0.8'), ('/О-компании.html', '0.6'), ('/Контакты.html', '0.8')]
+SITEMAP = [('/', '1.0'), ('/catalog.html', '0.9'), ('/water-heaters.html', '0.9'), ('/advantages.html', '0.7'),
+           ('/service.html', '0.8'), ('/about.html', '0.6'), ('/contacts.html', '0.8')]
 
 def sitemap():
     today = date.today().isoformat()
